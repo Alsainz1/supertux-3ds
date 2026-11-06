@@ -1,0 +1,17 @@
+(supertux-font
+  (glyph-width 8)
+  (glyph-height 9)
+  (glyph-border 0)
+  (surface
+    (glyphs "3ds-classic-white.png")
+    (shadows "3ds-classic-black.png")
+    (chars
+      " !\"#$%&'()*+,-./"
+      "0123456789:;<=>?"
+      "@ABCDEFGHIJKLMNO"
+      "PQRSTUVWXYZ[\\]^_"
+      "`abcdefghijklmno"
+      "pqrstuvwxyz{|}~ "
+    )
+  )
+)

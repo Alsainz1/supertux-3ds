@@ -1,0 +1,39 @@
+{
+  "SDL": [
+    "libsdl-org/SDL",
+    "release-2.32.10"
+  ],
+  "SDL_image": [
+    "libsdl-org/SDL_image",
+    "release-2.8.8"
+  ],
+  "freetype": [
+    "freetype/freetype",
+    "VER-2-13-3"
+  ],
+  "fmt": [
+    "fmtlib/fmt",
+    "11.1.4"
+  ],
+  "glm": [
+    "g-truc/glm",
+    "1.0.1"
+  ],
+  "PhysicsFS": [
+    "icculus/physfs",
+    "release-3.2.0 + devkitPro 3DS platform patch (3ds/patches/physfs-3.2.0-3ds.patch)"
+  ],
+  "release_submodules": "upstream-dependencies.json",
+  "SDL_mixer": [
+    "libsdl-org/SDL_mixer",
+    "release-2.8.1"
+  ],
+  "native_graphics": [
+    "devkitPro",
+    "citro2d and citro3d"
+  ],
+  "native_audio_decoder": [
+    "devkitPro",
+    "3ds-libvorbisidec (Tremor), 3ds-libogg"
+  ]
+}

@@ -1,0 +1,40 @@
+# Generated builds, prepared SD data and release archives
+build*/
+*-dist/
+dist/
+asset-cache*/
+audio-lean/
+change-baselines/
+lab-source/
+SuperTux-*/
+*.zip
+*.log
+*.3dsx
+*.cia
+*.cxi
+*.elf
+*.smdh
+*.bnr
+*.wav
+*.bin
+*.o
+*.a
+*.exe
+__pycache__/
+deps/
+host-tools/
+ninja-host/
+baseline-software/
+gpu-check/
+perf-test/
+toolchain-check/
+arm-feature-cache.cmake
+# Generated CIA pictures (the build uses original data/ artwork)
+cia/icon.png
+cia/banner.png
+# Required fixtures and source patches override the parent ignores.
+!tests/fixtures/*.bin
+!patches/*.patch
+# vendor/ contains required patched SOURCE and licenses; commit it.
+!cia/supertux.rsf
+!cia/banner-audio.wav

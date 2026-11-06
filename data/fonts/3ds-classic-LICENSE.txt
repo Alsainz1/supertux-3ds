@@ -1,0 +1,1 @@
+Original SuperTux classic 8x9 bitmap font, reused unchanged from the Milestone 1 port font backup. Original project contributors retain copyright. Covered by the original SuperTux GPL license; see licenses/SuperTux.txt in the package. ASCII character atlas, 16 columns and 6 rows. No NES ROM assets are used.

@@ -1,0 +1,22 @@
+{
+  "sexp-cpp": [
+    "SuperTux/sexp-cpp",
+    "02d50145911ad90c87e99ee700b9afdbad83cb65"
+  ],
+  "simplesquirrel": [
+    "SuperTux/simplesquirrel",
+    "37c2410b5f31d3aea3431d83b9b4398883224f23"
+  ],
+  "tinygettext": [
+    "SuperTux/tinygettext",
+    "3b239e2f27ff7e3055baada9b95635d51a414c34"
+  ],
+  "SDL_ttf": [
+    "SuperTux/SDL_ttf",
+    "861c047041f17c948eca992e2ade30f877b0dfc4"
+  ],
+  "squirrel": [
+    "SuperTux/squirrel",
+    "abab32a2077397c3739c70fc8b5b22a18bc2b5de"
+  ]
+}

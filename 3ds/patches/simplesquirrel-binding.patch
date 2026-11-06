@@ -1,0 +1,20 @@
+--- a/include/simplesquirrel/binding.hpp
++++ b/include/simplesquirrel/binding.hpp
+@@ -218,6 +218,17 @@
+                     sq_getuserdata(vm, -1, reinterpret_cast<void**>(&funcPtr), nullptr);
+                     sq_pop(vm, 1);
+ 
++#ifdef __3DS__
++                    // SQInteger aliases int on 32-bit ARM. Ordinary int
++                    // getters must push a numeric result, not return it as
++                    // the native callback's stack-result count. Only APIs
++                    // receiving the VM explicitly use that raw convention.
++                    if constexpr (!(std::is_same<Args, HSQUIRRELVM>::value || ...)) {
++                        const SQInteger result=detail::callFunc<offset, DefaultArgs...>(vm,funcPtr);
++                        sq_pushinteger(vm,result);
++                        return 1;
++                    } else
++#endif
+                     return detail::callFunc<offset, DefaultArgs...>(vm, funcPtr);
+                 } catch (const std::exception& e) {
+                     return sq_throwerror(vm, e.what());

@@ -1,0 +1,72 @@
+//  SuperTux
+//  Copyright (C) 2006 Matthias Braun <matze@braunis.de>
+//
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+#pragma once
+
+#include "video/texture.hpp"
+
+#include <SDL.h>
+#include <memory>
+
+#include "video/sampler.hpp"
+
+#ifdef __3DS__
+namespace ctr_gpu { struct Texture; }
+#endif
+
+class SDLTexture final : public Texture
+{
+public:
+  SDLTexture(SDL_Texture* texture, int width, int height, const Sampler& sampler);
+  SDLTexture(const SDL_Surface& image, const Sampler& sampler);
+#ifdef __3DS__
+  SDLTexture(const std::string& filename, const std::optional<Rect>& rect, const Sampler& sampler);
+#endif
+  ~SDLTexture() override;
+
+  virtual void reload(const SDL_Surface& image) override;
+
+  virtual int get_texture_width() const override { return m_width; }
+  virtual int get_texture_height() const override { return m_height; }
+
+  virtual int get_image_width() const override { return m_width; }
+  virtual int get_image_height() const override { return m_height; }
+
+#ifdef __3DS__
+  SDL_Texture* get_texture() const;
+  const ctr_gpu::Texture& get_gpu_texture() const;
+  bool gpu_ready() const { return static_cast<bool>(m_gpu_texture); }
+  void prefetch_cached();
+  void release_prepared_texture() { if (!m_lazy_filename.empty()) m_gpu_texture.reset(); }
+#else
+  inline SDL_Texture *get_texture() const { return m_texture; }
+#endif
+  inline const Sampler& get_sampler() const { return m_sampler; }
+
+private:
+  SDL_Texture* m_texture;
+  int m_width;
+  int m_height;
+#ifdef __3DS__
+  std::string m_lazy_filename;
+  std::optional<Rect> m_lazy_rect;
+  std::shared_ptr<ctr_gpu::Texture> m_gpu_texture;
+#endif
+
+private:
+  SDLTexture(const SDLTexture&) = delete;
+  SDLTexture& operator=(const SDLTexture&) = delete;
+};
