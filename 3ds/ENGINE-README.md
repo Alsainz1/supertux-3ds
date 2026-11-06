@@ -41,7 +41,7 @@ work; current animation-frame lookups avoid copying their entire action.
 These changes reduce texture switching; no real-hardware 60 FPS claim is made.
 
 Both launch formats use the original SuperTux game icon. The native CIA uses a
-static SuperTux logo banner (silent), title ID 000400000F707000. Install
+static SuperTux logo banner with the original 0.1.3 3DS port audio, title ID 000400000F707000. Install
 cias/SuperTux-0.7.0-Lean.cia using your usual CIA installer. It is a native
 application, not a forwarder, and still reads sd:/3ds/supertux070/data and
 sd:/3ds/supertux070/save. Extract the full update ZIP over the SD root first:
